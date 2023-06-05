@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import TodoItem from './TodoItem';
-const TodoList = ({ todos, handleCheck, deleteTodo }) => {
+const TodoList = ({ todos, handleCheck, deleteTodo, editTodo }) => {
   return (
     <ul>
       {todos.map((todo) => (
@@ -9,6 +9,7 @@ const TodoList = ({ todos, handleCheck, deleteTodo }) => {
           todo={todo}
           handleCheck={handleCheck}
           deleteTodo={deleteTodo}
+          editTodo={editTodo}
         />
       ))}
     </ul>

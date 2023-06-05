@@ -12,15 +12,19 @@ const InputTodo = ({ addTodo, setMessage }) => {
       setMessage('please enter a valid title');
     }
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
       <input
         type="text"
         placeholder="Enter the todo"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className="input-text"
       />
-      <button type="submit">submit</button>
+      <button type="submit" className="input-submit">
+        submit
+      </button>
     </form>
   );
 };

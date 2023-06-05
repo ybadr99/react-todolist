@@ -1,37 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Header from './Header';
 import TodoList from './TodoList';
 import InputTodo from './InputTodo';
-
 const TodoApp = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: 'Setup development environment',
-      completed: true,
-    },
-    {
-      id: 2,
-      title: 'Develop website and add content',
-      completed: false,
-    },
-    {
-      id: 3,
-      title: 'Deploy to live server',
-      completed: true,
-    },
-    {
-      id: 4,
-      title: 'Develop website and add content',
-      completed: false,
-    },
-    {
-      id: 5,
-      title: 'Develop website and add content',
-      completed: false,
-    },
-  ]);
+  const getData = () => {
+    const data = localStorage.getItem('todos');
+
+    return JSON.parse(data) || [];
+  };
+
+  const [todos, setTodos] = useState(getData());
 
   const [message, setMessage] = useState('');
 
@@ -62,19 +41,38 @@ const TodoApp = () => {
   const deleteTodo = (id) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
-  console.log(todos);
+
+  const editTodo = (id, t) => {
+    setTodos((preState) =>
+      preState.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title: t,
+          };
+        }
+
+        return todo;
+      })
+    );
+  };
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
-    <>
+    <div className="todos">
       <Header />
       <InputTodo setMessage={setMessage} addTodo={addTodo} />
-      <span>{message}</span>
+      <span className="submit-warning">{message}</span>
       <TodoList
         todos={todos}
         handleCheck={handleCheck}
         deleteTodo={deleteTodo}
+        editTodo={editTodo}
       />
-    </>
+    </div>
   );
 };
 
