@@ -1,10 +1,14 @@
 import TodoApp from './components/TodoApp';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <div className="wrapper">
-      <TodoApp />;
-    </div>
+    <>
+      <Sidebar />
+      {/* <div className="wrapper"> */}
+      <TodoApp />
+      {/* </div> */}
+    </>
   );
 }
 

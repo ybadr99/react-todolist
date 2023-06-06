@@ -4,6 +4,7 @@ import Header from './Header';
 import TodoList from './TodoList';
 import InputTodo from './InputTodo';
 const TodoApp = () => {
+  const [message, setMessage] = useState('');
   const getData = () => {
     const data = localStorage.getItem('todos');
 
@@ -11,9 +12,6 @@ const TodoApp = () => {
   };
 
   const [todos, setTodos] = useState(getData());
-
-  const [message, setMessage] = useState('');
-
   const handleCheck = (id) => {
     setTodos((preState) =>
       preState.map((todo) => {
