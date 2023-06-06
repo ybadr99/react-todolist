@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-
+import { Link } from 'react-router-dom';
 const Sidebar = () => {
   const [menuToggle, setMenuToggle] = useState(false);
 
@@ -12,13 +12,14 @@ const Sidebar = () => {
 
       <ul className={`menu-nav ${menuToggle ? 'show-menu' : ''}`}>
         <li>
-          <a href="">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="">About</a>
+          <Link to="/about">About</Link>
+          <Link to="/about/contact">Contact</Link>
         </li>
         <li>
-          <a href="">Login</a>
+          <Link href="">Login</Link>
         </li>
       </ul>
     </nav>
