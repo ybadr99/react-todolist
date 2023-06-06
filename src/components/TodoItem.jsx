@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaTrash } from 'react-icons/fa';
 
 /* eslint-disable react/prop-types */
 const TodoItem = ({ todo, handleCheck, deleteTodo, editTodo }) => {
@@ -29,7 +30,9 @@ const TodoItem = ({ todo, handleCheck, deleteTodo, editTodo }) => {
           onFocus={() => setEditing(true)}
           onBlur={() => setEditing(false)}
         />
-        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+        <button onClick={() => deleteTodo(todo.id)}>
+          <FaTrash />
+        </button>
       </div>
     </li>
   );

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
+
 // eslint-disable-next-line react/prop-types
 const InputTodo = ({ addTodo, setMessage }) => {
   const [title, setTitle] = useState('');
@@ -23,7 +25,7 @@ const InputTodo = ({ addTodo, setMessage }) => {
         className="input-text"
       />
       <button type="submit" className="input-submit">
-        submit
+        <FaPlusCircle />
       </button>
     </form>
   );
