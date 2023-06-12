@@ -22,6 +22,7 @@ const TodoItem = ({ todo, handleCheck, deleteTodo, editTodo }) => {
             handleCheck(todo.id);
           }}
         />
+
         <input
           style={{ textDecoration: todo.completed ? 'line-through' : '' }}
           value={todo.title}

@@ -11,9 +11,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<TodoApp />} />
-        <Route path="/about" element={<About />}>
-          <Route path="contact" element={<Contact />} />
-        </Route>
+        <Route path="/about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

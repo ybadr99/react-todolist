@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import Header from './Header';
-import TodoList from './TodoList';
+import TodoItem from './TodoItem';
+
 import InputTodo from './InputTodo';
 const TodoApp = () => {
   const [message, setMessage] = useState('');
@@ -64,12 +65,20 @@ const TodoApp = () => {
       <Header />
       <InputTodo setMessage={setMessage} addTodo={addTodo} />
       <span className="submit-warning">{message}</span>
-      <TodoList
-        todos={todos}
-        handleCheck={handleCheck}
-        deleteTodo={deleteTodo}
-        editTodo={editTodo}
-      />
+
+      <ul>
+        {todos.map((todo) => {
+          return (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              handleCheck={handleCheck}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          );
+        })}
+      </ul>
     </div>
   );
 };

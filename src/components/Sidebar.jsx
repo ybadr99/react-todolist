@@ -16,10 +16,12 @@ const Sidebar = () => {
         </li>
         <li>
           <Link to="/about">About</Link>
-          <Link to="/about/contact">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
         <li>
-          <Link href="">Login</Link>
+          <Link href="" to="login">
+            Login
+          </Link>
         </li>
       </ul>
     </nav>
